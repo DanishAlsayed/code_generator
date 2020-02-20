@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Classes>
+    <class name="Orders">
+        <attribute name="id" type="Int"/>
+        <attribute name="customerName" type="String"/>
+        <attribute name="price" type="Double"/>
+        <attribute name="check" type="Boolean"/>
+        <attribute name="size" type="float"/>
+        <attribute name="LONG" type="long"/>
+        <attribute name="SHORT" type="short"/>
+        <attribute name="BYTE" type="byte"/>
+        <attribute name="ascii" type="Char"/>
+    </class>
+    <class name="Orders2">
+        <attribute name="id2" type="Int"/>
+        <attribute name="customerName2" type="String"/>
+        <attribute name="price2" type="Double"/>
+        <attribute name="check2" type="Boolean"/>
+        <attribute name="size2" type="float"/>
+        <attribute name="LONG2" type="long"/>
+        <attribute name="SHORT2" type="short"/>
+        <attribute name="BYTE2" type="byte"/>
+        <attribute name="ascii2" type="Char"/>
+    </class>
+</Classes>
