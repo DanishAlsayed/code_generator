@@ -4,6 +4,7 @@ import main.java.*;
 import main.java.Class;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class InputParserTest {
         assertTrue(attributes.contains(new Attribute("customerName", DataType.STRING)));
         assertTrue(attributes.contains(new Attribute("price", DataType.DOUBLE)));
         assertTrue(attributes.contains(new Attribute("check", DataType.BOOLEAN)));
-        assertTrue(attributes.contains(new Attribute("price2", DataType.FLOAT)));
+        assertTrue(attributes.contains(new Attribute("size", DataType.FLOAT)));
         assertTrue(attributes.contains(new Attribute("LONG", DataType.LONG)));
         assertTrue(attributes.contains(new Attribute("SHORT", DataType.SHORT)));
         assertTrue(attributes.contains(new Attribute("BYTE", DataType.BYTE)));
@@ -40,7 +41,7 @@ public class InputParserTest {
 
     @Test
     public void correctXMLInput() {
-        InputXMLParser parser = new InputXMLParser("C:\\Users\\Danish Ibrahim\\Desktop\\Msc Big Data Technology\\code_generator\\src\\test\\resources\\classes.xml"/*new File(requireNonNull(getClass().getClassLoader().getResource("classes.xml")).getFile()).getCanonicalPath()*/);
+        InputXMLParser parser = new InputXMLParser(System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "classes.xml");
         List<Class> classes = parser.inputClasses();
         assertEquals(classes.size(), 2);
         assertEquals(classes.get(0).name(), "Orders");

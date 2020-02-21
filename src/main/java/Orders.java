@@ -1,15 +1,17 @@
+package main.java;
 import java.util.List;
-class Orders {
-   private List<String> varNames;
-   private int id;
-   private String customerName;
-   private double price;
-   private boolean check;
-   private float size;
-   private long LONG;
-   private short SHORT;
-   private byte BYTE;
-   private char ascii;
+import java.util.ArrayList;
+public class Orders {
+   private List<String> varNames = new ArrayList<>();
+   public int id;
+   public String customerName;
+   public double price;
+   public boolean check;
+   public float size;
+   public long LONG;
+   public short SHORT;
+   public byte BYTE;
+   public char ascii;
    
    public Orders(int id, String customerName, double price, boolean check, float size, long LONG, short SHORT, byte BYTE, char ascii) {
       this.id = id;
@@ -31,13 +33,19 @@ class Orders {
       this.ascii = ascii;
       varNames.add("ascii");
    }
-   public int f(final String var) {
+   public Object f(String var) {
       if (var == null || var.isEmpty()) {
-         return 0;
+         return null;
       }
       if (varNames.contains(var)) {
-         return 1;
+         try {
+            return Orders.class.getField(var).get(this);
+         }
+         catch (Exception e) {
+            System.out.println("Unable to retrieve variable due to the following error:" + e.getMessage());
+            return null;
+         }
       }
-      return 0;
+      return null;
    }
 }
